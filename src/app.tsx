@@ -19,6 +19,7 @@ export function App() {
   }
 
   var sound = new Audio("./assets/sounds/sound.mp3");
+  var sound_end = new Audio("./assets/sounds/end.mp3");
   var sound_claping = new Audio("./assets/sounds/claping.mp3");
 
   function run() {
@@ -38,6 +39,7 @@ export function App() {
     }, 188);
     setTimeout(() => {
       setGano(odd);
+      sound_end.play();
       sound_claping.play();
       const modal = document.querySelector(".modal-container");
       modal?.classList.remove("hide");
