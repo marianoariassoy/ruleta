@@ -95,7 +95,7 @@ export function App() {
 
             {stock.map((p) => (
               <div className={`content content_${p.id} hide`} key={p.id}>
-                X
+                <img src="./assets/images/sould-out.svg" />
               </div>
             ))}
           </div>
