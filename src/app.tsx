@@ -1,12 +1,23 @@
 import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { premios } from "./data/data";
 
 export function App() {
   const [premio, setPremio] = useState(0);
   const [agotado, setAgotado] = useState(false);
   const [stock] = useState(premios);
+
+  useEffect(() => {
+    stock.forEach((p) => {
+      if (p.stock === 0) {
+        const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
+        const content = document.querySelector(`.content_${p.id}`) as HTMLElement;
+        fill!.classList.add("agotado");
+        content!.classList.remove("hide");
+      }
+    });
+  }, []);
 
   function buildOdds() {
     return [
@@ -77,56 +88,16 @@ export function App() {
               <img src="./assets/images/todos.svg" />
             </div>
 
-            <div className="fill fill_1"></div>
-            <div className="fill fill_2"></div>
-            <div className="fill fill_3"></div>
-            <div className="fill fill_4"></div>
-            <div className="fill fill_5"></div>
-            <div className="fill fill_6"></div>
-            <div className="fill fill_7"></div>
-            <div className="fill fill_8"></div>
-            <div className="fill fill_9"></div>
-            <div className="fill fill_10"></div>
-            <div className="fill fill_11"></div>
-            <div className="fill fill_12"></div>
+            {stock.map((p) => (
+              <div className={`fill fill_${p.id}`} key={p.id}></div>
+            ))}
             <div className="fill fill_13"></div>
 
-            <div className="content content_1">
-              <span></span>
-            </div>
-            <div className="content content_2">
-              <span></span>
-            </div>
-            <div className="content content_3">
-              <span></span>
-            </div>
-            <div className="content content_4">
-              <span></span>
-            </div>
-            <div className="content content_5">
-              <span></span>
-            </div>
-            <div className="content content_6">
-              <span></span>
-            </div>
-            <div className="content content_7">
-              <span></span>
-            </div>
-            <div className="content content_8">
-              <span></span>
-            </div>
-            <div className="content content_9">
-              <span></span>
-            </div>
-            <div className="content content_10">
-              <span></span>
-            </div>
-            <div className="content content_11">
-              <span></span>
-            </div>
-            <div className="content content_12">
-              <span></span>
-            </div>
+            {stock.map((p) => (
+              <div className={`content content_${p.id} hide`} key={p.id}>
+                <img src="./assets/images/icon-loose.svg" />
+              </div>
+            ))}
           </div>
         </div>
 

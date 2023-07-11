@@ -23,7 +23,9 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
     stock.forEach((p) => {
       if (p.stock === 0) {
         const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
-        fill!.style.zIndex = "30";
+        const content = document.querySelector(`.content_${p.id}`) as HTMLElement;
+        fill!.classList.add("agotado");
+        content!.classList.remove("hide");
       }
     });
   }

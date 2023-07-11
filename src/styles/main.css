@@ -1,3 +1,11 @@
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
 main {
   align-items: center;
   display: flex;
@@ -83,4 +91,8 @@ hr {
 .premios {
   position: absolute;
   z-index: 20;
+}
+
+.agotado {
+  z-index: 30;
 }

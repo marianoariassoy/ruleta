@@ -2,7 +2,7 @@ export const premios = [
   {
     id: 1,
     name: "Möoi",
-    stock: 2,
+    stock: 0,
   },
   {
     id: 2,
@@ -12,7 +12,7 @@ export const premios = [
   {
     id: 3,
     name: "Pizzeria Popular",
-    stock: 2,
+    stock: 0,
   },
   {
     id: 4,
@@ -22,7 +22,7 @@ export const premios = [
   {
     id: 5,
     name: "Green & co",
-    stock: 2,
+    stock: 0,
   },
   {
     id: 6,
@@ -32,7 +32,7 @@ export const premios = [
   {
     id: 7,
     name: "Möoi",
-    stock: 3,
+    stock: 0,
   },
   {
     id: 8,
@@ -42,7 +42,7 @@ export const premios = [
   {
     id: 9,
     name: "Pizzeria Popular",
-    stock: 3,
+    stock: 0,
   },
   {
     id: 10,
@@ -52,7 +52,7 @@ export const premios = [
   {
     id: 11,
     name: "Green & co",
-    stock: 3,
+    stock: 0,
   },
   {
     id: 12,

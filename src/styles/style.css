@@ -138,11 +138,13 @@ div.fill_12::after {
 /* ---- Content ---- */
 
 .content {
-  height: 440px;
+  color: black;
+  height: 380px;
   padding-top: 60px;
   position: absolute;
   text-align: center;
   width: 100%;
+  z-index: 40;
 }
 
 .content_1 {
@@ -180,13 +182,6 @@ div.fill_12::after {
 }
 .content_12 {
   transform: rotate(calc(var(--angle-12) - 16deg));
-}
-
-.content span {
-  color: black;
-  display: block;
-  padding-bottom: 10px;
-  transform: rotate(-90deg);
 }
 
 /* ---- Keyframe ---- */
