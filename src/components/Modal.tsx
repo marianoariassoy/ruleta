@@ -1,12 +1,18 @@
 import { useEffect } from "preact/hooks";
 import { premios } from "../data/data";
 import { useState } from "preact/hooks";
+import Lottie from "lottie-react";
+import face from "./wired-outline-261-emoji-smile.json";
 
 type ModalProps = {
   premio: number;
 };
 
 const Modal = ({ premio }: ModalProps) => {
+  const style = {
+    width: 60,
+  };
+
   const [gano, setGano] = useState(0);
 
   useEffect(() => {
@@ -27,7 +33,7 @@ const Modal = ({ premio }: ModalProps) => {
     <div className="modal-container fade-in hide" onClick={hideModal}>
       <div className="modal shadow">
         <div className="face-win">
-          <img src="./assets/images/face-win.svg" width="50" />
+          <Lottie animationData={face} style={style} />
         </div>
         ¡Felicitaciones ganaste un premio de {premios[gano].name}!
       </div>
