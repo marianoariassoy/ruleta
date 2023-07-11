@@ -1,0 +1,207 @@
+body,
+html {
+  background-color: #1b2747;
+  border: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+:root {
+  --angle-1: 30deg;
+  --angle-2: 60deg;
+  --angle-3: 90deg;
+  --angle-4: 120deg;
+  --angle-5: 150deg;
+  --angle-6: 180deg;
+  --angle-7: 210deg;
+  --angle-8: 240deg;
+  --angle-9: 270deg;
+  --angle-10: 300deg;
+  --angle-11: 330deg;
+  --angle-12: 360deg;
+
+  --laps: 1;
+  --position: calc((var(--laps) * 30deg) - 16deg);
+}
+
+/* ---- Roullete ---- */
+
+.roullete {
+  background: white;
+  border-radius: 50%;
+  height: 440px;
+  position: relative;
+  width: 440px;
+  @media (max-width: 900px) {
+    /* height: 300px;
+    width: 300px; */
+  }
+}
+
+/* ---- Fill ---- */
+
+div.fill {
+  border-radius: 50%;
+  clip: rect(0px, 440px, 440px, 220px);
+  height: 440px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 440px;
+}
+div.fill::after {
+  border-radius: 50%;
+  clip: rect(0px, 220px, 270px, 0px);
+  content: "";
+  height: 440px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(30deg);
+  width: 440px;
+}
+div.fill_1 {
+  transform: rotate(var(0deg));
+}
+div.fill_2 {
+  transform: rotate(var(--angle-1));
+}
+div.fill_3 {
+  transform: rotate(var(--angle-2));
+}
+div.fill_4 {
+  transform: rotate(var(--angle-3));
+}
+div.fill_5 {
+  transform: rotate(var(--angle-4));
+}
+div.fill_6 {
+  transform: rotate(var(--angle-5));
+}
+div.fill_7 {
+  transform: rotate(var(--angle-6));
+}
+div.fill_8 {
+  transform: rotate(var(--angle-7));
+}
+div.fill_9 {
+  transform: rotate(var(--angle-8));
+}
+div.fill_10 {
+  transform: rotate(var(--angle-9));
+}
+div.fill_11 {
+  transform: rotate(var(--angle-10));
+}
+div.fill_12 {
+  transform: rotate(var(--angle-11));
+}
+div.fill_13 {
+  transform: rotate(var(--angle-12));
+}
+
+div.fill_1::after {
+  background: #1b2747;
+}
+div.fill_2::after {
+  background: #d9d9d9;
+}
+div.fill_3::after {
+  background: #96a7e3;
+}
+div.fill_4::after {
+  background: #ffffff;
+}
+div.fill_5::after {
+  background: #bacdea;
+}
+div.fill_6::after {
+  background: #273b6a;
+}
+div.fill_7::after {
+  background: #1b2747;
+}
+div.fill_8::after {
+  background: #d9d9d9;
+}
+div.fill_9::after {
+  background: #96a7e3;
+}
+div.fill_10::after {
+  background: #ffffff;
+}
+div.fill_11::after {
+  background: #bacdea;
+}
+div.fill_12::after {
+  background: #273b6a;
+}
+
+/* ---- Content ---- */
+
+.content {
+  height: 440px;
+  margin-top: -40px;
+  padding-top: 80px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.content img {
+  display: none;
+  transform: rotate(-90deg);
+}
+
+.content_1 {
+  transform: rotate(calc(var(--angle-1) - 16deg));
+}
+.content_2 {
+  transform: rotate(calc(var(--angle-2) - 16deg));
+}
+.content_3 {
+  transform: rotate(calc(var(--angle-3) - 16deg));
+}
+.content_4 {
+  transform: rotate(calc(var(--angle-4) - 16deg));
+}
+.content_5 {
+  transform: rotate(calc(var(--angle-5) - 16deg));
+}
+.content_6 {
+  transform: rotate(calc(var(--angle-6) - 16deg));
+}
+.content_7 {
+  transform: rotate(calc(var(--angle-7) - 16deg));
+}
+.content_8 {
+  transform: rotate(calc(var(--angle-8) - 16deg));
+}
+.content_9 {
+  transform: rotate(calc(var(--angle-9) - 16deg));
+}
+.content_10 {
+  transform: rotate(calc(var(--angle-10) - 16deg));
+}
+.content_11 {
+  transform: rotate(calc(var(--angle-11) - 16deg));
+}
+.content_12 {
+  transform: rotate(calc(var(--angle-12) - 16deg));
+}
+
+/* ---- Keyframe ---- */
+
+.roullete.loop {
+  animation: rotation 8s ease-out forwards;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(16deg);
+  }
+  to {
+    transform: rotate(calc(360deg * 10 - var(--position)));
+  }
+}

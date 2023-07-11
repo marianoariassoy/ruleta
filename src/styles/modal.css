@@ -1,0 +1,59 @@
+.modal-container {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 80;
+}
+
+.modal-container .modal {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  color: #233462;
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: bold;
+  height: 60px;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  width: 280px;
+}
+
+.modal-container .modal .face-win {
+  align-items: center;
+  background-color: #233462;
+  border-radius: 50%;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  left: calc(50% - 40px);
+  position: absolute;
+  top: -54px;
+  width: 80px;
+}
+
+.hide {
+  display: none;
+}
+
+.fade-in {
+  animation: fadeIn ease 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
