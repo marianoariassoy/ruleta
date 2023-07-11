@@ -18,16 +18,24 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
     const roullete = document.querySelector('div[name="roullete"]');
     roullete!.classList.remove("loop");
     setPremio(0);
+
+    //reviso stocks
+    stock.forEach((p) => {
+      if (p.stock === 0) {
+        const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
+        fill!.style.zIndex = "30";
+      }
+    });
   }
 
   return (
     <div className="modal-container fade-in" onClick={hideModal}>
-      <div className="modal shadow">
+      <div className="modal ">
         <div className="face-win">
           <Lottie animationData={face} style={style} />
         </div>
         <span class="text-xl block">¡Felicitaciones ganaste un premio de {name}!</span>
-        <span class="text-sm block">Stock restante: {remainingStock}</span>
+        <span class="text-sm block">stock restante: {remainingStock}</span>
       </div>
     </div>
   );

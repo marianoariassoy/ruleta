@@ -18,7 +18,7 @@ const Agotado = ({ setAgotado }: AgotadoProps) => {
 
   return (
     <div className="modal-container  fade-in" onClick={hideModal}>
-      <div className="modal shadow agotado">
+      <div className="modal  agotado">
         <div className="face-win">
           <Lottie animationData={face} style={style} />
         </div>

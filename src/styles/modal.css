@@ -1,5 +1,6 @@
 .modal-container {
   align-items: center;
+  backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   display: flex;
@@ -8,8 +9,9 @@
   left: 0;
   position: fixed;
   top: 0;
+  transition: all 0.3s ease;
   width: 100vw;
-  z-index: 80;
+  z-index: 300;
 }
 
 .modal-container .modal {
@@ -41,13 +43,13 @@
   width: 80px;
 }
 
-.agotado {
+/* .agotado {
   color: rgb(229, 50, 50) !important;
 }
 
 .agotado .face-win {
   background-color: rgb(229, 50, 50) !important;
-}
+} */
 
 .hide {
   display: none;

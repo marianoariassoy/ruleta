@@ -18,8 +18,7 @@ export function App() {
   function getRandomOdd() {
     const array = buildOdds();
     const index = Math.floor(Math.random() * array.length);
-    const odd = array[index];
-    return odd > 6 ? odd - 6 : odd;
+    return array[index];
   }
 
   const start = new Audio("./assets/sounds/start.mp3");
@@ -33,7 +32,6 @@ export function App() {
     roullete!.classList.remove("loop");
 
     const odd = getRandomOdd();
-
     console.log("ID Premio: " + odd);
 
     setTimeout(() => {
@@ -56,8 +54,6 @@ export function App() {
         loose.play();
       }, 8500);
     }
-
-    console.log(stock);
   }
 
   return (
@@ -95,18 +91,42 @@ export function App() {
             <div className="fill fill_12"></div>
             <div className="fill fill_13"></div>
 
-            <div className="content content_1"> </div>
-            <div className="content content_2"> </div>
-            <div className="content content_3"> </div>
-            <div className="content content_4"> </div>
-            <div className="content content_5"> </div>
-            <div className="content content_6"> </div>
-            <div className="content content_7"> </div>
-            <div className="content content_8"> </div>
-            <div className="content content_9"> </div>
-            <div className="content content_10"> </div>
-            <div className="content content_11"> </div>
-            <div className="content content_12"> </div>
+            <div className="content content_1">
+              <span></span>
+            </div>
+            <div className="content content_2">
+              <span></span>
+            </div>
+            <div className="content content_3">
+              <span></span>
+            </div>
+            <div className="content content_4">
+              <span></span>
+            </div>
+            <div className="content content_5">
+              <span></span>
+            </div>
+            <div className="content content_6">
+              <span></span>
+            </div>
+            <div className="content content_7">
+              <span></span>
+            </div>
+            <div className="content content_8">
+              <span></span>
+            </div>
+            <div className="content content_9">
+              <span></span>
+            </div>
+            <div className="content content_10">
+              <span></span>
+            </div>
+            <div className="content content_11">
+              <span></span>
+            </div>
+            <div className="content content_12">
+              <span></span>
+            </div>
           </div>
         </div>
 

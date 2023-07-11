@@ -34,10 +34,6 @@ html {
   height: 440px;
   position: relative;
   width: 440px;
-  @media (max-width: 900px) {
-    /* height: 300px;
-    width: 300px; */
-  }
 }
 
 /* ---- Fill ---- */
@@ -143,15 +139,10 @@ div.fill_12::after {
 
 .content {
   height: 440px;
-  margin-top: -40px;
-  padding-top: 80px;
+  padding-top: 60px;
   position: absolute;
   text-align: center;
   width: 100%;
-}
-.content img {
-  display: none;
-  transform: rotate(-90deg);
 }
 
 .content_1 {
@@ -189,6 +180,13 @@ div.fill_12::after {
 }
 .content_12 {
   transform: rotate(calc(var(--angle-12) - 16deg));
+}
+
+.content span {
+  color: black;
+  display: block;
+  padding-bottom: 10px;
+  transform: rotate(-90deg);
 }
 
 /* ---- Keyframe ---- */
