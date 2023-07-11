@@ -1,8 +1,12 @@
 import Modal from "./components/Modal";
+import Agotado from "./components/Agotado";
 import { useState } from "preact/hooks";
+import { premios } from "./data/data";
 
 export function App() {
-  const [gano, setGano] = useState(0);
+  const [premio, setPremio] = useState(0);
+  const [agotado, setAgotado] = useState(false);
+  const [stock] = useState(premios);
 
   function buildOdds() {
     return [
@@ -18,32 +22,42 @@ export function App() {
     return odd > 6 ? odd - 6 : odd;
   }
 
-  var sound = new Audio("./assets/sounds/sound.mp3");
-  var sound_end = new Audio("./assets/sounds/end.mp3");
-  var sound_claping = new Audio("./assets/sounds/claping.mp3");
+  const start = new Audio("./assets/sounds/start.mp3");
+  const end = new Audio("./assets/sounds/end.mp3");
+  const claping = new Audio("./assets/sounds/claping.mp3");
+  const loose = new Audio("./assets/sounds/loose.mp3");
 
   function run() {
-    sound.play();
-
+    start.play();
     const roullete = document.querySelector('div[name="roullete"]');
     roullete!.classList.remove("loop");
 
     const odd = getRandomOdd();
-    // console.log(odd);
 
-    // premios.filter((p) => p.id == odd && p.count--);
+    console.log("ID Premio: " + odd);
 
     setTimeout(() => {
       document.documentElement.style.setProperty("--laps", odd.toString());
       roullete!.classList.add("loop");
     }, 188);
-    setTimeout(() => {
-      setGano(odd);
-      sound_end.play();
-      sound_claping.play();
-      const modal = document.querySelector(".modal-container");
-      modal?.classList.remove("hide");
-    }, 8000);
+
+    const stockPremio = stock.find((p) => p.id === odd)!.stock;
+
+    if (stockPremio > 0) {
+      stock.filter((p) => p.id === odd && p.stock--);
+      setTimeout(() => {
+        setPremio(odd);
+        end.play();
+        claping.play();
+      }, 8500);
+    } else {
+      setTimeout(() => {
+        setAgotado(true);
+        loose.play();
+      }, 8500);
+    }
+
+    console.log(stock);
   }
 
   return (
@@ -102,7 +116,8 @@ export function App() {
         </footer>
       </main>
 
-      <Modal premio={gano} />
+      {premio > 0 && <Modal premio={premio} setPremio={setPremio} stock={stock} />}
+      {agotado && <Agotado setAgotado={setAgotado} />}
     </>
   );
 }

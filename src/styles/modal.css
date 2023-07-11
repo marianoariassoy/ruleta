@@ -18,9 +18,9 @@
   border-radius: 10px;
   color: #233462;
   display: flex;
-  font-size: 1.25rem;
-  font-weight: bold;
-  height: 60px;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 80px;
   justify-content: center;
   padding: 2rem;
   position: relative;
@@ -41,6 +41,14 @@
   width: 80px;
 }
 
+.agotado {
+  color: rgb(229, 50, 50) !important;
+}
+
+.agotado .face-win {
+  background-color: rgb(229, 50, 50) !important;
+}
+
 .hide {
   display: none;
 }
@@ -56,4 +64,17 @@
   100% {
     opacity: 1;
   }
+}
+
+.block {
+  display: block;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.text-sm {
+  font-size: 0.9rem;
 }

@@ -9,9 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lord-icon-element": "^4.1.1",
     "lottie-react": "^2.4.0",
-    "lottie-web": "^5.12.2",
     "preact": "^10.15.1"
   },
   "devDependencies": {

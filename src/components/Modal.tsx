@@ -1,41 +1,33 @@
-import { useEffect } from "preact/hooks";
-import { premios } from "../data/data";
-import { useState } from "preact/hooks";
 import Lottie from "lottie-react";
 import face from "./wired-outline-261-emoji-smile.json";
 
 type ModalProps = {
   premio: number;
+  setPremio: (premio: number) => void;
+  stock: Array<any>;
 };
 
-const Modal = ({ premio }: ModalProps) => {
+const Modal = ({ premio, setPremio, stock }: ModalProps) => {
   const style = {
-    width: 60,
+    width: 50,
   };
 
-  const [gano, setGano] = useState(0);
-
-  useEffect(() => {
-    setGano(premio);
-  }, [premio]);
-
-  console.log(premio);
+  const { name, stock: remainingStock } = stock.find((p) => p.id === premio)!;
 
   function hideModal() {
-    const modal = document.querySelector(".modal-container");
-    modal?.classList.add("hide");
-
     const roullete = document.querySelector('div[name="roullete"]');
     roullete!.classList.remove("loop");
+    setPremio(0);
   }
 
   return (
-    <div className="modal-container fade-in hide" onClick={hideModal}>
+    <div className="modal-container fade-in" onClick={hideModal}>
       <div className="modal shadow">
         <div className="face-win">
           <Lottie animationData={face} style={style} />
         </div>
-        ¡Felicitaciones ganaste un premio de {premios[gano].name}!
+        <span class="text-xl block">¡Felicitaciones ganaste un premio de {name}!</span>
+        <span class="text-sm block">Stock restante: {remainingStock}</span>
       </div>
     </div>
   );

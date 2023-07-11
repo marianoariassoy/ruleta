@@ -1,37 +1,32 @@
 export const premios = [
   {
-    id: 0,
-    name: "Ninguno",
-    stock: 0,
-  },
-  {
     id: 1,
     name: "Möoi",
-    stock: 5,
+    stock: 1,
   },
   {
     id: 2,
     name: "Tostado",
-    stock: 5,
+    stock: 1,
   },
   {
     id: 3,
     name: "Pizzeria Popular",
-    stock: 5,
+    stock: 1,
   },
   {
     id: 4,
     name: "Brioche Dorée",
-    stock: 5,
+    stock: 1,
   },
   {
     id: 5,
     name: "Green & co",
-    stock: 5,
+    stock: 1,
   },
   {
     id: 6,
     name: "Z Food",
-    stock: 5,
+    stock: 1,
   },
 ];
