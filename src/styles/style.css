@@ -139,6 +139,7 @@ div.fill_12::after {
 
 .content {
   color: black;
+  font-weight: bold;
   height: 380px;
   padding-top: 60px;
   position: absolute;
