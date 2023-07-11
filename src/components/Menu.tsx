@@ -6,7 +6,7 @@ type Props = {
   stock: Array<any>;
 };
 
-const Menu = ({ stock }: Props) => {
+const Menu = ({ stock, setMenu }: Props) => {
   // const resetStock = () => {
   //   setStock(premios);
   //   console.log(stock);
@@ -14,7 +14,7 @@ const Menu = ({ stock }: Props) => {
   // };
 
   return (
-    <section className="fade-in menu">
+    <section className="fade-in menu" onClick={() => setMenu(false)}>
       <div className="menu-container text-sm">
         <ul>
           {stock.map((p) => (

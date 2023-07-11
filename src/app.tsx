@@ -118,7 +118,7 @@ export function App() {
       </main>
 
       <button onClick={() => setMenu(!menu)} class="open-menu text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#FFF">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#FFF" width="15">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
         </svg>
       </button>
