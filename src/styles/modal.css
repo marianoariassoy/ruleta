@@ -21,7 +21,7 @@
   color: #233462;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
   height: 80px;
   justify-content: center;
   padding: 2rem;
@@ -42,14 +42,6 @@
   top: -54px;
   width: 80px;
 }
-
-/* .agotado {
-  color: rgb(229, 50, 50) !important;
-}
-
-.agotado .face-win {
-  background-color: rgb(229, 50, 50) !important;
-} */
 
 .hide {
   display: none;
@@ -73,7 +65,7 @@
 }
 
 .text-xl {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 

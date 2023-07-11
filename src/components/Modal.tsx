@@ -32,12 +32,12 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
 
   return (
     <div className="modal-container fade-in" onClick={hideModal}>
-      <div className="modal ">
+      <div className="modal">
         <div className="face-win">
           <Lottie animationData={face} style={style} />
         </div>
         <span class="text-xl block">¡Felicitaciones ganaste un premio de {name}!</span>
-        <span class="block">Gracias por jugar con Alto Noa</span>
+        <span class="text-sm block">Gracias por jugar con Alto Noa</span>
       </div>
     </div>
   );
