@@ -1,12 +1,20 @@
 import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
+import Menu from "./components/Menu";
 import { useEffect, useState } from "preact/hooks";
 import { premios } from "./data/data";
 
 export function App() {
+  const [menu, setMenu] = useState(false);
   const [premio, setPremio] = useState(0);
   const [agotado, setAgotado] = useState(false);
-  const [stock] = useState(premios);
+  const [stock, setStock] = useState([
+    {
+      id: 1,
+      name: "",
+      stock: 1,
+    },
+  ]);
 
   useEffect(() => {
     stock.forEach((p) => {
@@ -17,6 +25,8 @@ export function App() {
         content!.classList.remove("hide");
       }
     });
+
+    setStock(premios);
   }, []);
 
   function buildOdds() {
@@ -107,8 +117,15 @@ export function App() {
         </footer>
       </main>
 
+      <button onClick={() => setMenu(!menu)} class="open-menu text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#FFF">
+          <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+        </svg>
+      </button>
+
       {premio > 0 && <Modal premio={premio} setPremio={setPremio} stock={stock} />}
       {agotado && <Agotado setAgotado={setAgotado} />}
+      {menu && <Menu stock={stock} setStock={setStock} setMenu={setMenu} />}
     </>
   );
 }

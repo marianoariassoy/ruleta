@@ -4,5 +4,6 @@ import "./assets/fonts/stylesheet.css";
 import "./styles/style.css";
 import "./styles/main.css";
 import "./styles/modal.css";
+import "./styles/menu.css";
 
 render(<App />, document.getElementById("app")!);

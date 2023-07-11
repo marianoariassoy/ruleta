@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import face from "./wired-outline-262-emoji-wow.json";
+import face from "../json/wired-outline-262-emoji-wow.json";
 
 type AgotadoProps = {
   setAgotado: (agotado: boolean) => void;

@@ -1,0 +1,51 @@
+.open-menu {
+  bottom: 2rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 1200;
+}
+
+.menu {
+  background-color: #333;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.menu-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.menu .menu-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu .menu-container ul li {
+  margin-bottom: 0.5rem;
+}
+
+.open-menu {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  opacity: 0.5;
+}
+
+.open-menu:hover {
+  color: white;
+  opacity: 1;
+}

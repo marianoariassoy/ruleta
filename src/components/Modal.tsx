@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import face from "./wired-outline-261-emoji-smile.json";
+import face from "../json/wired-outline-261-emoji-smile.json";
 
 type ModalProps = {
   premio: number;
@@ -12,7 +12,7 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
     width: 50,
   };
 
-  const { name, stock: remainingStock } = stock.find((p) => p.id === premio)!;
+  const { name } = stock.find((p) => p.id === premio)!;
 
   function hideModal() {
     const roullete = document.querySelector('div[name="roullete"]');
@@ -37,7 +37,7 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
           <Lottie animationData={face} style={style} />
         </div>
         <span class="text-xl block">¡Felicitaciones ganaste un premio de {name}!</span>
-        <span class="text-sm block">stock restante: {remainingStock}</span>
+        <span class="block">Gracias por jugar con Alto Noa</span>
       </div>
     </div>
   );
