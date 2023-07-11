@@ -6,7 +6,7 @@ export const premios = [
   },
   {
     id: 1,
-    name: "Möol",
+    name: "Möoi",
     stock: 5,
   },
   {
