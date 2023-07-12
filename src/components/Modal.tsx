@@ -1,18 +1,24 @@
 import Lottie from "lottie-react";
 import face from "../json/wired-outline-261-emoji-smile.json";
 
-type ModalProps = {
-  premio: number;
-  setPremio: (premio: number) => void;
-  stock: Array<any>;
+type Stock = {
+  id: number;
+  name: string;
+  stock: number;
 };
 
-const Modal = ({ premio, setPremio, stock }: ModalProps) => {
+type Props = {
+  premio: number;
+  setPremio: (premio: number) => void;
+  stock: Array<Stock> | undefined;
+};
+
+const Modal = ({ premio, setPremio, stock }: Props) => {
   const style = {
     width: 50,
   };
 
-  const { name } = stock.find((p) => p.id === premio)!;
+  const { name } = stock!.find((p) => p.id === premio)!;
 
   function hideModal() {
     const roullete = document.querySelector('div[name="roullete"]');
@@ -20,7 +26,7 @@ const Modal = ({ premio, setPremio, stock }: ModalProps) => {
     setPremio(0);
 
     //reviso stocks
-    stock.forEach((p) => {
+    stock!.forEach((p) => {
       if (p.stock === 0) {
         const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
         const content = document.querySelector(`.content_${p.id}`) as HTMLElement;

@@ -4,29 +4,20 @@ import Menu from "./components/Menu";
 import { useEffect, useState } from "preact/hooks";
 import { premios } from "./data/data";
 
+type Stock = {
+  id: number;
+  name: string;
+  stock: number;
+};
+
 export function App() {
-  const [menu, setMenu] = useState(false);
-  const [premio, setPremio] = useState(0);
-  const [agotado, setAgotado] = useState(false);
-  const [stock, setStock] = useState([
-    {
-      id: 1,
-      name: "",
-      stock: 1,
-    },
-  ]);
+  const [menu, setMenu] = useState<boolean>(false);
+  const [premio, setPremio] = useState<number>(0);
+  const [agotado, setAgotado] = useState<boolean>(false);
+  const [stock, setStock] = useState<Stock[]>();
 
   useEffect(() => {
-    stock.forEach((p) => {
-      if (p.stock === 0) {
-        const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
-        const content = document.querySelector(`.content_${p.id}`) as HTMLElement;
-        fill!.classList.add("agotado");
-        content!.classList.remove("hide");
-      }
-    });
-
-    setStock(premios);
+    setStock([...premios]);
   }, []);
 
   function buildOdds() {
@@ -60,10 +51,12 @@ export function App() {
       roullete!.classList.add("loop");
     }, 188);
 
-    const stockPremio = stock.find((p) => p.id === odd)!.stock;
+    const stockPremio = stock!.find((p) => p.id === odd)!.stock;
 
     if (stockPremio > 0) {
-      stock.filter((p) => p.id === odd && p.stock--);
+      const newStock = stock!.filter((p) => p.id === odd && p.stock--);
+
+      console.log(newStock);
       setTimeout(() => {
         setPremio(odd);
         end.play();
@@ -96,16 +89,15 @@ export function App() {
               <img src="./assets/images/todos.svg" />
             </div>
 
-            {stock.map((p) => (
-              <div className={`fill fill_${p.id}`} key={p.id}></div>
-            ))}
+            {stock && stock.map((p) => <div className={`fill fill_${p.id}`} key={p.id}></div>)}
             <div className="fill fill_13"></div>
 
-            {stock.map((p) => (
-              <div className={`content content_${p.id} hide`} key={p.id}>
-                <img src="./assets/images/sould-out.svg" />
-              </div>
-            ))}
+            {stock &&
+              stock.map((p) => (
+                <div className={`content content_${p.id} hide`} key={p.id}>
+                  <img src="./assets/images/sould-out.svg" />
+                </div>
+              ))}
           </div>
         </div>
 
