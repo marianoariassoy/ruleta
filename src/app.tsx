@@ -76,11 +76,11 @@ export function App() {
         <img src="./assets/images/title.svg" width="150" />
 
         <div className="container-roullete">
+          <div className="arrow-down"></div>
+
           <button className="button-run shadow-inset" onClick={run}>
             <img src="./assets/images/logo.svg" />
           </button>
-
-          <div className="arrow-down"></div>
 
           <div name="roullete" className="roullete">
             <div className="border-top shadow shadow-inset"></div>

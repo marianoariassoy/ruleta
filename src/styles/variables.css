@@ -1,0 +1,23 @@
+:root {
+  --angle-1: 30deg;
+  --angle-2: 60deg;
+  --angle-3: 90deg;
+  --angle-4: 120deg;
+  --angle-5: 150deg;
+  --angle-6: 180deg;
+  --angle-7: 210deg;
+  --angle-8: 240deg;
+  --angle-9: 270deg;
+  --angle-10: 300deg;
+  --angle-11: 330deg;
+  --angle-12: 360deg;
+
+  --laps: 1;
+  --position: calc((var(--laps) * 30deg) - 16deg);
+
+  --color-1: #1b2747;
+  --color-2: #d9d9d9;
+  --color-3: #96a7e3;
+  --color-4: #ffffff;
+  --color-5: #bacdea;
+}
