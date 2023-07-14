@@ -11,10 +11,10 @@ type Stock = {
 };
 
 export function App() {
-  const [menu, setMenu] = useState<boolean>(false);
-  const [premio, setPremio] = useState<number>(0);
-  const [agotado, setAgotado] = useState<boolean>(false);
   const [stock, setStock] = useState<Stock[]>();
+  const [premio, setPremio] = useState<number>(0);
+  const [menu, setMenu] = useState<boolean>(false);
+  const [agotado, setAgotado] = useState<boolean>(false);
 
   useEffect(() => {
     setStock([...premios]);
