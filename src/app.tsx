@@ -1,9 +1,9 @@
+import { useEffect, useState } from "preact/hooks";
+import { FadeLoader } from "react-spinners";
 import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
 import Menu from "./components/Menu";
-import { useEffect, useState } from "preact/hooks";
 import useFetch from "./hooks/useFetch";
-import { FadeLoader } from "react-spinners";
 
 type Stock = {
   id: number;
@@ -11,9 +11,24 @@ type Stock = {
   stock: number;
 };
 
+type Colors = {
+  id: number;
+  title: string;
+  color1: string;
+  color2: string;
+  color3: string;
+  color4: string;
+  color5: string;
+  color6: string;
+};
+
 export function App() {
   const { data, loading } = useFetch(`/awards`);
-  const { data: colors, loading: loadingColors } = useFetch(`/colors`);
+  const { data: colors, loading: loadingColors } = useFetch(`/colors`) as {
+    data: null | Colors[];
+    loading: boolean;
+    error: null;
+  };
 
   if (loading) return <FadeLoader color="#FFFFFF" />;
   if (loadingColors) return <FadeLoader color="#FFFFFF" />;
@@ -24,15 +39,17 @@ export function App() {
   const [agotado, setAgotado] = useState<boolean>(false);
 
   useEffect(() => {
-    setStock([...data]);
+    data && setStock([...data]);
 
     const root = document.documentElement;
-    root.style.setProperty("--color-1", colors[0].color1);
-    root.style.setProperty("--color-2", colors[0].color2);
-    root.style.setProperty("--color-3", colors[0].color3);
-    root.style.setProperty("--color-4", colors[0].color4);
-    root.style.setProperty("--color-5", colors[0].color5);
-    root.style.setProperty("--color-6", colors[0].color6);
+    if (colors) {
+      root.style.setProperty("--color-1", colors[0].color1);
+      root.style.setProperty("--color-2", colors[0].color2);
+      root.style.setProperty("--color-3", colors[0].color3);
+      root.style.setProperty("--color-4", colors[0].color4);
+      root.style.setProperty("--color-5", colors[0].color5);
+      root.style.setProperty("--color-6", colors[0].color6);
+    }
   }, []);
 
   function buildOdds() {
@@ -120,7 +137,7 @@ export function App() {
         </div>
 
         <footer>
-          {colors[0].title}
+          {colors && colors[0].title}
           <hr />
         </footer>
       </main>

@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "preact/hooks";
 const apiUrl = "https://marianoarias.soy/ruleta/backend/api";
 import axios from "axios";
 
-type Data = string;
-
-function useFetch(url: Data) {
+function useFetch(url: string) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
