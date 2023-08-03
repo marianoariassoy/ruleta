@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { FadeLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
 import Menu from "./components/Menu";
@@ -30,8 +30,8 @@ export function App() {
     error: null;
   };
 
-  if (loading) return <FadeLoader color="#FFFFFF" />;
-  if (loadingColors) return <FadeLoader color="#FFFFFF" />;
+  if (loading) return <HashLoader color="#FFFFFF" />;
+  if (loadingColors) return <HashLoader color="#FFFFFF" />;
 
   const [stock, setStock] = useState<Stock[]>();
   const [premio, setPremio] = useState<number>(0);
@@ -105,20 +105,23 @@ export function App() {
   return (
     <>
       <main>
-        <img src="./assets/images/title.svg" width="150" />
+        <img
+          src="https://marianoarias.soy/ruleta/backend/images/header.svg"
+          width="150"
+        />
 
         <div className="container-roullete">
           <div className="arrow-down"></div>
 
           <button className="button-run shadow-inset" onClick={run}>
-            <img src="./assets/images/logo.svg" />
+            <img src="https://marianoarias.soy/ruleta/backend/images/logo.svg" />
           </button>
 
           <div name="roullete" className="roullete">
             <div className="border-top shadow shadow-inset"></div>
 
             <div className="premios">
-              <img src="./assets/images/todos.svg" />
+              <img src="https://marianoarias.soy/ruleta/backend/images/main.svg" />
             </div>
 
             {stock &&
@@ -130,7 +133,7 @@ export function App() {
             {stock &&
               stock.map((p) => (
                 <div className={`content content_${p.id} hide`} key={p.id}>
-                  <img src="./assets/images/sould-out.svg" />
+                  <img src="https://marianoarias.soy/ruleta/backend/images/sould-out.svg" />
                 </div>
               ))}
           </div>
