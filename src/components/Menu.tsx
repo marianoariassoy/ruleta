@@ -1,5 +1,3 @@
-import { premios } from "../data/data";
-
 type Stock = {
   id: number;
   name: string;
@@ -8,16 +6,10 @@ type Stock = {
 
 type Props = {
   stock: Array<Stock> | undefined;
-  setStock: Function;
   setMenu: Function;
 };
 
-const Menu = ({ stock, setStock, setMenu }: Props) => {
-  const resetStock = () => {
-    console.log("Stock reiniciado");
-    setStock(premios);
-  };
-
+const Menu = ({ stock, setMenu }: Props) => {
   return (
     <section className="fade-in menu" onClick={() => setMenu(false)}>
       <div className="menu-container text-sm">
@@ -28,9 +20,6 @@ const Menu = ({ stock, setStock, setMenu }: Props) => {
             </li>
           ))}
         </ul>
-        <button onClick={resetStock} className="hide">
-          Reinciar
-        </button>
       </div>
     </section>
   );

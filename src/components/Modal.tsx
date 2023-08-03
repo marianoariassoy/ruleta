@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import face from "../json/wired-outline-261-emoji-smile.json";
+import ConfettiExplosion from "react-confetti-explosion";
 
 type Stock = {
   id: number;
@@ -25,11 +26,12 @@ const Modal = ({ premio, setPremio, stock }: Props) => {
     roullete!.classList.remove("loop");
     setPremio(0);
 
-    //reviso stocks
     stock!.forEach((p) => {
       if (p.stock === 0) {
         const fill = document.querySelector(`.fill_${p.id}`) as HTMLElement;
-        const content = document.querySelector(`.content_${p.id}`) as HTMLElement;
+        const content = document.querySelector(
+          `.content_${p.id}`
+        ) as HTMLElement;
         fill!.classList.add("agotado");
         content!.classList.remove("hide");
       }
@@ -41,8 +43,11 @@ const Modal = ({ premio, setPremio, stock }: Props) => {
       <div className="modal">
         <div className="face-win">
           <Lottie animationData={face} style={style} />
+          <ConfettiExplosion />
         </div>
-        <span class="text-xl block">¡Felicitaciones ganaste un premio de {name}!</span>
+        <span class="text-xl block">
+          ¡Felicitaciones ganaste un premio de {name}!
+        </span>
         <span class="text-sm block">Gracias por jugar con Alto Noa</span>
       </div>
     </div>

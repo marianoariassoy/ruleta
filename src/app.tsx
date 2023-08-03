@@ -2,7 +2,8 @@ import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
 import Menu from "./components/Menu";
 import { useEffect, useState } from "preact/hooks";
-import { premios } from "./data/data";
+import useFetch from "./hooks/useFetch";
+import { FadeLoader } from "react-spinners";
 
 type Stock = {
   id: number;
@@ -11,19 +12,35 @@ type Stock = {
 };
 
 export function App() {
+  const { data, loading } = useFetch(`/awards`);
+  const { data: colors, loading: loadingColors } = useFetch(`/colors`);
+
+  if (loading) return <FadeLoader color="#FFFFFF" />;
+  if (loadingColors) return <FadeLoader color="#FFFFFF" />;
+
   const [stock, setStock] = useState<Stock[]>();
   const [premio, setPremio] = useState<number>(0);
   const [menu, setMenu] = useState<boolean>(false);
   const [agotado, setAgotado] = useState<boolean>(false);
 
   useEffect(() => {
-    setStock([...premios]);
+    setStock([...data]);
+
+    const root = document.documentElement;
+    root.style.setProperty("--color-1", colors[0].color1);
+    root.style.setProperty("--color-2", colors[0].color2);
+    root.style.setProperty("--color-3", colors[0].color3);
+    root.style.setProperty("--color-4", colors[0].color4);
+    root.style.setProperty("--color-5", colors[0].color5);
+    root.style.setProperty("--color-6", colors[0].color6);
   }, []);
 
   function buildOdds() {
     return [
-      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8,
-      9, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12,
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+      3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5,
+      5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7,
+      8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12,
     ];
   }
 
@@ -44,7 +61,6 @@ export function App() {
     roullete!.classList.remove("loop");
 
     const odd = getRandomOdd();
-    console.log("ID Premio: " + odd);
 
     setTimeout(() => {
       document.documentElement.style.setProperty("--laps", odd.toString());
@@ -54,9 +70,8 @@ export function App() {
     const stockPremio = stock!.find((p) => p.id === odd)!.stock;
 
     if (stockPremio > 0) {
-      const newStock = stock!.filter((p) => p.id === odd && p.stock--);
+      stock!.filter((p) => p.id === odd && p.stock--);
 
-      console.log(newStock);
       setTimeout(() => {
         setPremio(odd);
         end.play();
@@ -89,7 +104,10 @@ export function App() {
               <img src="./assets/images/todos.svg" />
             </div>
 
-            {stock && stock.map((p) => <div className={`fill fill_${p.id}`} key={p.id}></div>)}
+            {stock &&
+              stock.map((p) => (
+                <div className={`fill fill_${p.id}`} key={p.id}></div>
+              ))}
             <div className="fill fill_13"></div>
 
             {stock &&
@@ -102,20 +120,28 @@ export function App() {
         </div>
 
         <footer>
-          El Shopping de Salta
+          {colors[0].title}
           <hr />
         </footer>
       </main>
 
       <button onClick={() => setMenu(!menu)} class="open-menu text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#FFF" width="15">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 512 512"
+          fill="#FFF"
+          width="15"
+        >
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
         </svg>
       </button>
 
-      {premio > 0 && <Modal premio={premio} setPremio={setPremio} stock={stock} />}
+      {premio > 0 && (
+        <Modal premio={premio} setPremio={setPremio} stock={stock} />
+      )}
       {agotado && <Agotado setAgotado={setAgotado} />}
-      {menu && <Menu stock={stock} setStock={setStock} setMenu={setMenu} />}
+      {menu && <Menu stock={stock} setMenu={setMenu} />}
     </>
   );
 }
