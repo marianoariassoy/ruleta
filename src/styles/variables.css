@@ -15,7 +15,7 @@
   --laps: 1;
   --position: calc((var(--laps) * 30deg) - 16deg);
 
-  --color-1: #1b2747;
+  --color-1: #000;
   --color-2: #d9d9d9;
   --color-3: #96a7e3;
   --color-4: #ffffff;
