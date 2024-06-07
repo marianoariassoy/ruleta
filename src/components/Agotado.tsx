@@ -23,7 +23,7 @@ const Agotado = ({ setAgotado }: AgotadoProps) => {
           <Lottie animationData={face} style={style} />
         </div>
         <span class="text-xl block">¡Seguí participando!</span>
-        <span class="text-sm block">Gracias por jugar con Alto Noa</span>
+        <span class="text-sm block">Gracias por jugar con Alto Noa</span>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ html {
   left: 0;
   position: absolute;
   top: 0;
-  transform: rotate(30deg);
+  transform: rotate(var(--angle-1));
   width: 440px;
 }
 
@@ -80,6 +80,9 @@ html {
 .fill_13 {
   transform: rotate(var(--angle-12));
 }
+.fill_14 {
+  transform: rotate(var(--angle-13));
+}
 
 .fill_1::after {
   background: var(--color-1);
@@ -97,25 +100,31 @@ html {
   background: var(--color-5);
 }
 .fill_6::after {
-  background: var(--color-4);
+  background: var(--color-6);
 }
 .fill_7::after {
-  background: var(--color-1);
+  background: var(--color-7);
 }
 .fill_8::after {
-  background: var(--color-2);
+  background: var(--color-1);
 }
 .fill_9::after {
-  background: var(--color-3);
+  background: var(--color-2);
 }
 .fill_10::after {
-  background: var(--color-4);
+  background: var(--color-3);
 }
 .fill_11::after {
-  background: var(--color-5);
+  background: var(--color-4);
 }
 .fill_12::after {
-  background: var(--color-4);
+  background: var(--color-5);
+}
+.fill_13::after {
+  background: var(--color-6);
+}
+.fill_14::after {
+  background: var(--color-7);
 }
 
 .content {
@@ -162,6 +171,15 @@ html {
 }
 .content_12 {
   transform: rotate(calc(var(--angle-12) - 16deg));
+}
+.content_13 {
+  transform: rotate(calc(var(--angle-13) - 16deg));
+}
+.content_14 {
+  transform: rotate(calc(var(--angle-14) - 16deg));
+}
+.content_15 {
+  transform: rotate(calc(var(--angle-15) - 16deg));
 }
 
 .roullete.loop {

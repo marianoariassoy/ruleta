@@ -20,6 +20,7 @@ type Colors = {
   color4: string;
   color5: string;
   color6: string;
+  color7: string;
 };
 
 export function App() {
@@ -49,6 +50,7 @@ export function App() {
       root.style.setProperty("--color-4", colors[0].color4);
       root.style.setProperty("--color-5", colors[0].color5);
       root.style.setProperty("--color-6", colors[0].color6);
+      root.style.setProperty("--color-7", colors[0].color7);
     }
   }, []);
 
@@ -128,7 +130,7 @@ export function App() {
               stock.map((p) => (
                 <div className={`fill fill_${p.id}`} key={p.id}></div>
               ))}
-            <div className="fill fill_13"></div>
+            {/* <div className="fill fill_15"></div> */}
 
             {stock &&
               stock.map((p) => (

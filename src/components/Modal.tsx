@@ -48,7 +48,7 @@ const Modal = ({ premio, setPremio, stock }: Props) => {
         <span class="text-xl block">
           ¡Felicitaciones ganaste un premio de {name}!
         </span>
-        <span class="text-sm block">Gracias por jugar con Alto Noa</span>
+        <span class="text-sm block">Gracias por jugar con Alto Noa</span>
       </div>
     </div>
   );
