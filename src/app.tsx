@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { HashLoader } from "react-spinners";
+import { MoonLoader } from "react-spinners";
 import Modal from "./components/Modal";
 import Agotado from "./components/Agotado";
 import Menu from "./components/Menu";
@@ -31,8 +31,8 @@ export function App() {
     error: null;
   };
 
-  if (loading) return <HashLoader color="#FFFFFF" />;
-  if (loadingColors) return <HashLoader color="#FFFFFF" />;
+  if (loading) return <MoonLoader color="#FFFFFF" />;
+  if (loadingColors) return <MoonLoader color="#FFFFFF" />;
 
   const [stock, setStock] = useState<Stock[]>();
   const [premio, setPremio] = useState<number>(0);
