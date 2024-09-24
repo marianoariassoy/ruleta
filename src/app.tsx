@@ -135,7 +135,10 @@ export function App() {
             {stock &&
               stock.map((p) => (
                 <div className={`content content_${p.id} hide`} key={p.id}>
-                  <img src="https://marianoarias.soy/ruleta/backend/images/sould-out.svg" />
+                  <img
+                    src="https://marianoarias.soy/ruleta/backend/images/sould-out.svg"
+                    height="25"
+                  />
                 </div>
               ))}
           </div>
